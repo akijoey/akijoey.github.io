@@ -1319,7 +1319,7 @@ blockquote {
   line-height: 1.2rem;
 }
 .category-content ul li:hover:before {
-  border-color: #ff7242;
+  border-color: #db70db;
 }
 .category-content ul li:before {
   top: 10px;
@@ -2673,7 +2673,7 @@ footer.footer-bg {
   cursor: pointer;
 }
 .tag-cloud a:hover {
-  color: #ff7242 !important;
+  color: #db70db !important;
 }
 .tag-cloud__title {
   font-size: 1.8rem;
@@ -3106,7 +3106,7 @@ footer.footer-bg {
   text-align: center;
 /* padding-left: 8% */
   position: absolute;
-  bottom: 5rem;
+  top: 43%;
 }
 #top-container #post-title {
   text-shadow: 0.1rem 0.1rem 0.2rem rgba(0,0,0,0.15);
@@ -3826,7 +3826,7 @@ a.article-meta__categories:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #ff7242;
+  background: #db70db;
   -webkit-transform: scaleX(0);
   -moz-transform: scaleX(0);
   -o-transform: scaleX(0);
