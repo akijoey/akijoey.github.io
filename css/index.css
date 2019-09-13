@@ -1577,14 +1577,12 @@ footer.footer-bg {
 }
 #site-title {
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 2rem;
 }
 .glitch {
   display: inline-block;
   position: relative;
   letter-spacing: 0.15rem;
-  font-weight: bold;
-  font-size: 3rem;
 }
 @-webkit-keyframes glitch-anim-1 {
   0% {
@@ -1703,7 +1701,7 @@ footer.footer-bg {
   animation: glitch-anim-2 7s infinite linear alternate-reverse;
 }
 #site-sub-title {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 .scroll-down {
   position: absolute;
@@ -1903,7 +1901,7 @@ footer.footer-bg {
 }
 @media screen and (min-width: 768px) {
   #site-title {
-    font-size: 2rem;
+    font-size: 2.8rem;
   }
   #site-sub-title {
     font-size: 1.2rem;
