@@ -1,3 +1,3 @@
 # AkiJoey.github.io
-This is my web.  
+This is my website.  
 <https://akijoey.com>
