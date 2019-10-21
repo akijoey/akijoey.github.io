@@ -606,7 +606,7 @@ $(document).ready(function()
 				x: Math.random() * w,
 				y: Math.random() * h,
 				l: Math.random() * 8,
-				xs: Math.random() - 0.3,
+				xs: Math.random() - 0.5,
 				ys: Math.random() * 10 + 10
 			});
 		var particles = [];
