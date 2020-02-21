@@ -1,0 +1,241 @@
+body {
+	font-family: arial;
+	margin: 0;
+	padding: none;
+}
+
+.emscripten {
+	margin: 20px auto;
+	display: block;
+}
+div.emscripten { text-align: center; }      
+div.emscripten_border { border: 0px solid black; }
+/* the canvas *must not* have any border or padding, or mouse cbody {
+	font-family: arial;
+	margin: 0;
+	padding: none;
+	touch-action: none;
+}
+
+.emscripten {
+	margin: 20px auto;
+	display: block;
+}
+  div.emscripten { text-align: center; }      
+  div.emscripten_border { border: 0px solid black; }
+  /* the canvas *must not* have any border or padding, or mouse coords will be wrong */
+  canvas.emscripten { border: 0px none; background-color: black; }
+
+  #emscripten_logo {
+	display: inline-block;
+	margin: 0;
+  }
+
+  .spinner {
+	height: 30px;
+	width: 30px;
+	margin: 0;
+	margin-top: 20px;
+	margin-left: 20px;
+	display: inline-block;
+	vertical-align: top;
+
+	-webkit-animation: rotation .8s linear infinite;
+	-moz-animation: rotation .8s linear infinite;
+	-o-animation: rotation .8s linear infinite;
+	animation: rotation 0.8s linear infinite;
+
+	border-left: 5px solid rgb(235, 235, 235);
+	border-right: 5px solid rgb(235, 235, 235);
+	border-bottom: 5px solid rgb(235, 235, 235);
+	border-top: 5px solid rgb(120, 120, 120);
+	
+	border-radius: 100%;
+	background-color: rgb(189, 215, 46);
+  }
+
+  @-webkit-keyframes rotation {
+	from {-webkit-transform: rotate(0deg);}
+	to {-webkit-transform: rotate(360deg);}
+  }
+  @-moz-keyframes rotation {
+	from {-moz-transform: rotate(0deg);}
+	to {-moz-transform: rotate(360deg);}
+  }
+  @-o-keyframes rotation {
+	from {-o-transform: rotate(0deg);}
+	to {-o-transform: rotate(360deg);}
+  }
+  @keyframes rotation {
+	from {transform: rotate(0deg);}
+	to {transform: rotate(360deg);}
+  }
+
+  #status {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 30px;
+	margin-left: 20px;
+	font-weight: bold;
+	color: rgb(120, 120, 120);
+  }
+
+  #progress {
+	height: 20px;
+	width: 300px;
+  }
+
+  #controls {
+	display: inline-block;
+	float: right;
+	vertical-align: top;
+	margin-top: 30px;
+	margin-right: 20px;
+  }
+
+  #output {
+	width: 100%;
+	height: 0px;
+	margin: 0 auto;
+	margin-top: 10px;
+	border-left: 0px;
+	border-right: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	display: none;
+	background-color: black;
+	color: white;
+	font-family: 'Lucida Console', Monaco, monospace;
+	outline: none;
+  }
+
+  table
+  {
+	border: none;
+  }
+  td.button_td
+  {
+	width: 9%; 
+	height: 5%;
+  }
+  td.button_td1
+  {
+	width: 6%; 
+	height: 5%;
+  }
+  td.button_td2
+  {
+	width: 10%; 
+	height: 5%;
+  }
+  input.inputbutton1
+  {
+	width: 120%;
+	height: 100%;
+	font-size: 36pt;
+	padding: 3pt 0;
+  }
+  input.inputbutton2
+  {
+	width: 85%; 
+	height: 85%;
+	font-size: 24pt;
+  }
+  input.inputbutton3
+  {
+	width: 85%; 
+	height: 85%;
+	font-size: 24pt;
+  }
+  div.softkbd
+  {
+	width: 90%;
+	position: fixed;
+	bottom: 0pt;
+	left: 5%;
+	opacity: 0.5;
+  }oords will be wrong */
+canvas.emscripten { border: 0px none; background-color: black; }
+
+#emscripten_logo {
+	display: inline-block;
+	margin: 0;
+}
+
+.spinner {
+	height: 30px;
+	width: 30px;
+	margin: 0;
+	margin-top: 20px;
+	margin-left: 20px;
+	display: inline-block;
+	vertical-align: top;
+
+	-webkit-animation: rotation .8s linear infinite;
+	-moz-animation: rotation .8s linear infinite;
+	-o-animation: rotation .8s linear infinite;
+	animation: rotation 0.8s linear infinite;
+
+	border-left: 5px solid rgb(235, 235, 235);
+	border-right: 5px solid rgb(235, 235, 235);
+	border-bottom: 5px solid rgb(235, 235, 235);
+	border-top: 5px solid rgb(120, 120, 120);
+	
+	border-radius: 100%;
+	background-color: rgb(189, 215, 46);
+}
+
+@-webkit-keyframes rotation {
+	from {-webkit-transform: rotate(0deg);}
+	to {-webkit-transform: rotate(360deg);}
+}
+@-moz-keyframes rotation {
+	from {-moz-transform: rotate(0deg);}
+	to {-moz-transform: rotate(360deg);}
+}
+@-o-keyframes rotation {
+	from {-o-transform: rotate(0deg);}
+	to {-o-transform: rotate(360deg);}
+}
+@keyframes rotation {
+	from {transform: rotate(0deg);}
+	to {transform: rotate(360deg);}
+}
+
+#status {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 30px;
+	margin-left: 20px;
+	font-weight: bold;
+	color: rgb(120, 120, 120);
+}
+
+#progress {
+	height: 20px;
+	width: 300px;
+}
+
+#controls {
+	display: inline-block;
+	float: right;
+	vertical-align: top;
+	margin-top: 30px;
+	margin-right: 20px;
+}
+
+#output {
+	width: 100%;
+	height: 0px;
+	margin: 0 auto;
+	margin-top: 10px;
+	border-left: 0px;
+	border-right: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	display: none;
+	background-color: black;
+	color: white;
+	font-family: 'Lucida Console', Monaco, monospace;
+	outline: none;
+}

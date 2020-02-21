@@ -1,0 +1,16 @@
+* {
+	text-align: center;
+}
+
+a {
+	font-size: 22px;
+	font-weight: bold;
+	text-decoration: none;
+	line-height: 40px;
+	color: black;
+	transition: .5s;
+}
+
+a:hover {
+	color: red;
+}
