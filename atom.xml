@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>AkiJoey</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://akijoey.com/"/>
+  <updated>2020-02-27T10:52:02.653Z</updated>
+  <id>https://akijoey.com/</id>
+  
+  <author>
+    <name>AkiJoey</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode - 667</title>
+    <link href="https://akijoey.com/2020/02/27/LeetCode%20-%20667/"/>
+    <id>https://akijoey.com/2020/02/27/LeetCode%20-%20667/</id>
+    <published>2020-02-26T16:00:00.000Z</published>
+    <updated>2020-02-27T10:52:02.653Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>题目链接: <a href="https://leetcode.com/problems/beautiful-arrangement-ii/" target="_blank" rel="noopener">https://leetcode.com/problems/beautiful-arrangement-ii/</a></p><p><img src="/img/img_posts/leetcode667.png" alt></p><h2 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h2><p>第一个方法是 dfs + 剪枝, 超时了.<br>这道题其实可以直接构造出结果.<br>1 到 n 个不同整数的差值个数最多为 n - 1.<br>即 k &lt; n, 因此只需要在 n 个数的排列里构造 k 个差值, 即 1 到 k.<br>较大的数和较小的数交替出现 k 次, 即差值为 2 到 k.<br>剩余 n - k 个数有序排列, 即差值都为 1.</p><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Beautiful Arrangement II*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; constructArray(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, j = n;i &lt;= j;)</span><br><span class="line"><span class="keyword">if</span> (k &gt; <span class="number">1</span>)</span><br><span class="line">res.push_back(k-- % <span class="number">2</span> ? i++ : j--);</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">res.push_back(i++);</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      leetcode667
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://akijoey.com/categories/Algorithm/"/>
+    
+    
+      <category term="LeetCode" scheme="https://akijoey.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode - 216</title>
+    <link href="https://akijoey.com/2020/02/27/LeetCode%20-%20216/"/>
+    <id>https://akijoey.com/2020/02/27/LeetCode%20-%20216/</id>
+    <published>2020-02-26T16:00:00.000Z</published>
+    <updated>2020-02-26T20:40:49.021Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>题目链接: <a href="https://leetcode.com/problems/combination-sum-iii/" target="_blank" rel="noopener">https://leetcode.com/problems/combination-sum-iii/</a></p><p><img src="/img/img_posts/leetcode216.png" alt></p><h2 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h2><p>dfs 组合 + 剪枝.<br>剪去组合总和大于 n 的情况.<br>n 逐层减去 i, 因此只需要剪去 n &lt; i 的情况.</p><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Combination Sum III*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; candidate;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> k, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (!n &amp;&amp; candidate.size() == k)</span><br><span class="line">&#123;</span><br><span class="line">res.push_back(candidate);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = index;i &lt; <span class="number">10</span>;i++)</span><br><span class="line"><span class="keyword">if</span> (n &gt;= i)</span><br><span class="line">&#123;</span><br><span class="line">candidate.push_back(i);</span><br><span class="line">dfs(i + <span class="number">1</span>, k, n - i);</span><br><span class="line">candidate.pop_back();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; combinationSum3(<span class="keyword">int</span> k, <span class="keyword">int</span> n)</span><br><span class="line">&#123;</span><br><span class="line">dfs(<span class="number">1</span>, k, n);</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      leetcode216
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://akijoey.com/categories/Algorithm/"/>
+    
+    
+      <category term="LeetCode" scheme="https://akijoey.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode - 1254</title>
+    <link href="https://akijoey.com/2020/02/27/LeetCode%20-%201254/"/>
+    <id>https://akijoey.com/2020/02/27/LeetCode%20-%201254/</id>
+    <published>2020-02-26T16:00:00.000Z</published>
+    <updated>2020-02-26T19:14:41.997Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>题目链接: <a href="https://leetcode.com/problems/number-of-closed-islands/" target="_blank" rel="noopener">https://leetcode.com/problems/number-of-closed-islands/</a></p><p><img src="/img/img_posts/leetcode1254.png" alt></p><h2 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h2><p>dfs 四个方向遍历岛屿, 将遍历后的岛屿变为海洋.<br>即将 grid 中的 1 变为 0, 同时判断该岛屿是否封闭.<br>若岛屿碰上边界, 则该岛屿不封闭, 即 num 为 0.</p><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Number of Closed Islands*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="keyword">int</span> direction[<span class="number">4</span>][<span class="number">2</span>] = &#123;&#123; <span class="number">0</span>, <span class="number">1</span> &#125;, &#123; <span class="number">0</span>, <span class="number">-1</span> &#125;, &#123; <span class="number">1</span>, <span class="number">0</span> &#125;, &#123; <span class="number">-1</span>, <span class="number">0</span> &#125;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (i &lt; <span class="number">0</span> || j &lt; <span class="number">0</span> || i &gt;= grid.size() || j &gt;= grid[i].size())</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"><span class="keyword">if</span> (grid[i][j])</span><br><span class="line"><span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">grid[i][j] = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> d : direction)</span><br><span class="line">num *= dfs(grid, i + d[<span class="number">0</span>], j + d[<span class="number">1</span>]);</span><br><span class="line"><span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">closedIsland</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; grid.size();i++)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; grid[i].size();j++)</span><br><span class="line"><span class="keyword">if</span> (grid[i][j] == <span class="number">0</span>)</span><br><span class="line">res += dfs(grid, i, j);</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      leetcode1254
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://akijoey.com/categories/Algorithm/"/>
+    
+    
+      <category term="LeetCode" scheme="https://akijoey.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode - 526</title>
+    <link href="https://akijoey.com/2020/02/27/LeetCode%20-%20526/"/>
+    <id>https://akijoey.com/2020/02/27/LeetCode%20-%20526/</id>
+    <published>2020-02-26T16:00:00.000Z</published>
+    <updated>2020-02-27T07:12:55.984Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>题目链接: <a href="https://leetcode.com/problems/beautiful-arrangement/" target="_blank" rel="noopener">https://leetcode.com/problems/beautiful-arrangement/</a></p><p><img src="/img/img_posts/leetcode526.png" alt></p><h2 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h2><p>dfs 全排列 + 剪枝.<br>vis 数组记录访问状态.<br>剪去无法整除的情况, 即 !(index % i) || !(i % index).<br>此处有个非常巧妙的优化, 即 index 从 N 开始递减.<br>得到的是 beautiful arrangement 的 reverse.<br>剪枝的过程不同, 得到的数量相同, 即结果相同.<br>既可以避免除数为 0, 又可以提高剪枝效率.</p><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Beautiful Arrangement*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> index, <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;&amp; vis)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (!index)</span><br><span class="line">&#123;</span><br><span class="line">res++;</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= vis.size();i++)</span><br><span class="line"><span class="keyword">if</span> (!vis[i] &amp;&amp; (!(index % i) || !(i % index)))</span><br><span class="line">&#123;</span><br><span class="line">vis[i] = <span class="literal">true</span>;</span><br><span class="line">dfs(index - <span class="number">1</span>, vis);</span><br><span class="line">vis[i] = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">countArrangement</span><span class="params">(<span class="keyword">int</span> N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; vis(N, <span class="literal">false</span>);</span><br><span class="line">dfs(N, vis);</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      leetcode526
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://akijoey.com/categories/Algorithm/"/>
+    
+    
+      <category term="LeetCode" scheme="https://akijoey.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode - 52</title>
+    <link href="https://akijoey.com/2020/02/26/LeetCode%20-%2052/"/>
+    <id>https://akijoey.com/2020/02/26/LeetCode%20-%2052/</id>
+    <published>2020-02-25T16:00:00.000Z</published>
+    <updated>2020-02-26T20:53:48.147Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>题目链接: <a href="https://leetcode.com/problems/n-queens-ii/" target="_blank" rel="noopener">https://leetcode.com/problems/n-queens-ii/</a></p><p><img src="/img/img_posts/leetcode52.png" alt></p><h2 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h2><p>dfs + 位压缩.<br>思路与上一题一样, 通过位压缩优化了剪枝条件.<br>col, hill, dale 分别表示每一列, 主副对角线的状态.<br>状态为是否存在皇后, 即状态只能为 0 或 1.<br>因此可以通过位压缩降低空间复杂度.</p><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*N-Queens II*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> col, <span class="keyword">int</span> hill, <span class="keyword">int</span> dale, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (index == n)</span><br><span class="line">&#123;</span><br><span class="line">res++;</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line"><span class="keyword">if</span> (!(col &gt;&gt; i &amp; <span class="number">1</span>) &amp;&amp; !(hill &gt;&gt; index + i &amp; <span class="number">1</span>) &amp;&amp; !(dale &gt;&gt; index - i + n &amp; <span class="number">1</span>))</span><br><span class="line">dfs(index + <span class="number">1</span>, col | <span class="number">1</span> &lt;&lt; i, hill | <span class="number">1</span> &lt;&lt; index + i, dale | <span class="number">1</span> &lt;&lt; index - i + n, n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">totalNQueens</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">dfs(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, n);</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      leetcode52
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://akijoey.com/categories/Algorithm/"/>
+    
+    
+      <category term="LeetCode" scheme="https://akijoey.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode - 51</title>
+    <link href="https://akijoey.com/2020/02/26/LeetCode%20-%2051/"/>
+    <id>https://akijoey.com/2020/02/26/LeetCode%20-%2051/</id>
+    <published>2020-02-25T16:00:00.000Z</published>
+    <updated>2020-02-25T22:17:24.228Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>题目链接: <a href="https://leetcode.com/problems/n-queens/" target="_blank" rel="noopener">https://leetcode.com/problems/n-queens/</a></p><p><img src="/img/img_posts/leetcode51.png" alt></p><h2 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h2><p>dfs + 回溯 + 剪枝.<br>搜索每个 grid 做合法性检验.<br>检验其所在列以及主副对角线上是否存在皇后.</p><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*N-Queens*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; res;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; grid, <span class="keyword">int</span> row, <span class="keyword">int</span> col)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; row;i++)</span><br><span class="line"><span class="keyword">if</span> (grid[i][col] == <span class="string">'Q'</span>)</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = row - <span class="number">1</span>, j = col - <span class="number">1</span>;i &gt;=<span class="number">0</span> &amp;&amp; j &gt;= <span class="number">0</span>;i--, j--)</span><br><span class="line"><span class="keyword">if</span> (grid[i][j] == <span class="string">'Q'</span>)</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = row - <span class="number">1</span>, j = col + <span class="number">1</span>;i &gt;= <span class="number">0</span> &amp;&amp; j &lt; grid.size();i--, j++)</span><br><span class="line"><span class="keyword">if</span> (grid[i][j] == <span class="string">'Q'</span>)</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> index, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; grid)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (index == grid.size())</span><br><span class="line">&#123;</span><br><span class="line">res.push_back(grid);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; grid.size();i++)</span><br><span class="line"><span class="keyword">if</span> (check(grid, index, i))</span><br><span class="line">&#123;</span><br><span class="line">grid[index][i] = <span class="string">'Q'</span>;</span><br><span class="line">dfs(index + <span class="number">1</span>, grid);</span><br><span class="line">grid[index][i] = <span class="string">'.'</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; solveNQueens(<span class="keyword">int</span> n)</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; grid(n, <span class="built_in">string</span>(n, <span class="string">'.'</span>));</span><br><span class="line">dfs(<span class="number">0</span>, grid);</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      leetcode51
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://akijoey.com/categories/Algorithm/"/>
+    
+    
+      <category term="LeetCode" scheme="https://akijoey.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode - 60</title>
+    <link href="https://akijoey.com/2020/02/25/LeetCode%20-%2060/"/>
+    <id>https://akijoey.com/2020/02/25/LeetCode%20-%2060/</id>
+    <published>2020-02-24T16:00:00.000Z</published>
+    <updated>2020-02-25T21:20:58.289Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>题目链接: <a href="https://leetcode.com/problems/permutation-sequence/" target="_blank" rel="noopener">https://leetcode.com/problems/permutation-sequence/</a></p><p><img src="/img/img_posts/leetcode60.png" alt></p><h2 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h2><p>直接找出第 k 个排列.<br>n 的范围为 1 到 9, 可对阶乘打表.<br>首先 k– 将 k 转换为下标形式.<br>若确定了第一个数, 则剩下 (n - 1)! 种排列.<br>即 k / factorial[n - 1] 可确定第一个数.<br>更新 k 的值, nums 中删除已经确定的数.<br>迭代 n 次即可得到结果.</p><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Permutation Sequence*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">getPermutation</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="built_in">string</span> res;</span><br><span class="line"><span class="built_in">string</span> nums = <span class="string">"123456789"</span>;</span><br><span class="line"><span class="keyword">int</span> factorial[] = &#123; <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">6</span>, <span class="number">24</span>, <span class="number">120</span>, <span class="number">720</span>, <span class="number">5040</span>, <span class="number">40320</span>, <span class="number">362880</span>, <span class="number">3628800</span> &#125;;</span><br><span class="line">k--;</span><br><span class="line"><span class="keyword">while</span> (n)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">int</span> i = k / factorial[n - <span class="number">1</span>];</span><br><span class="line">k %= factorial[n-- - <span class="number">1</span>];</span><br><span class="line">res.push_back(nums[i]);</span><br><span class="line">nums.erase(i, <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      leetcode60
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://akijoey.com/categories/Algorithm/"/>
+    
+    
+      <category term="LeetCode" scheme="https://akijoey.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode - 784</title>
+    <link href="https://akijoey.com/2020/02/25/LeetCode%20-%20784/"/>
+    <id>https://akijoey.com/2020/02/25/LeetCode%20-%20784/</id>
+    <published>2020-02-24T16:00:00.000Z</published>
+    <updated>2020-02-25T08:36:38.254Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>题目链接: <a href="https://leetcode.com/problems/letter-case-permutation/" target="_blank" rel="noopener">https://leetcode.com/problems/letter-case-permutation/</a></p><p><img src="/img/img_posts/leetcode784.png" alt></p><h2 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h2><p>dfs 全排列.<br>将一次搜索分为字符 c 是否为字母的两种情况.<br>内置函数 isalpha(c) 判断字符 c 是否为字母.<br>大写字符与小写字符的 ASCII 差值为 32, 即 1 &lt;&lt; 5.<br>因此只需要将字符 c 异或 1 &lt;&lt; 5 即可转换大小写.</p><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Letter Case Permutation*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; res;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> index, <span class="built_in">string</span> s, <span class="built_in">string</span>&amp; S)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (index == S.size())</span><br><span class="line">&#123;</span><br><span class="line">res.push_back(s);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">char</span> c = S[index];</span><br><span class="line">dfs(index + <span class="number">1</span>, s + c, S);</span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">isalpha</span>(c))</span><br><span class="line">&#123;</span><br><span class="line">c = S[index] ^ <span class="number">1</span> &lt;&lt; <span class="number">5</span>;</span><br><span class="line">dfs(index + <span class="number">1</span>, s + c, S);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; letterCasePermutation(<span class="built_in">string</span> S)</span><br><span class="line">&#123;</span><br><span class="line">dfs(<span class="number">0</span>, <span class="string">""</span>, S);</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      leetcode784
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://akijoey.com/categories/Algorithm/"/>
+    
+    
+      <category term="LeetCode" scheme="https://akijoey.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode - 93</title>
+    <link href="https://akijoey.com/2020/02/25/LeetCode%20-%2093/"/>
+    <id>https://akijoey.com/2020/02/25/LeetCode%20-%2093/</id>
+    <published>2020-02-24T16:00:00.000Z</published>
+    <updated>2020-02-25T12:05:18.070Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>题目链接: <a href="https://leetcode.com/problems/restore-ip-addresses/" target="_blank" rel="noopener">https://leetcode.com/problems/restore-ip-addresses/</a></p><p><img src="/img/img_posts/leetcode93.png" alt></p><h2 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h2><p>dfs + 回溯 + 剪枝.<br>ipv4 地址分为四段, 即搜索树为 4 层.<br>每段长度为 1 到 3, 即 i 从 1 到 3.<br>剪枝条件为每段数值小于 255 且不以 0 开头.<br>stoi() 将字符串转为整数, to_string() 将整数转为字符串.<br>若 i != to_string(paragraph).size() 则说明开头存在 0.</p><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Restore IP Addresses*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; res;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> index, <span class="built_in">string</span> ip, <span class="built_in">string</span> s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (index == <span class="number">4</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (s.empty())</span><br><span class="line">res.push_back(ip);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; <span class="number">4</span>;i++)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (s.size() &lt; i)</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">int</span> paragraph = stoi(s.substr(<span class="number">0</span>, i));</span><br><span class="line"><span class="keyword">if</span> (paragraph &gt; <span class="number">255</span> || i != to_string(paragraph).size())</span><br><span class="line"><span class="keyword">continue</span>;</span><br><span class="line">dfs(index + <span class="number">1</span>, ip + s.substr(<span class="number">0</span>, i) + (index == <span class="number">3</span> ? <span class="string">""</span> : <span class="string">"."</span>), s.substr(i));</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; restoreIpAddresses(<span class="built_in">string</span> s)</span><br><span class="line">&#123;</span><br><span class="line">dfs(<span class="number">0</span>, <span class="string">""</span>, s);</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      leetcode93
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://akijoey.com/categories/Algorithm/"/>
+    
+    
+      <category term="LeetCode" scheme="https://akijoey.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode - 90</title>
+    <link href="https://akijoey.com/2020/02/24/LeetCode%20-%2090/"/>
+    <id>https://akijoey.com/2020/02/24/LeetCode%20-%2090/</id>
+    <published>2020-02-23T16:00:00.000Z</published>
+    <updated>2020-02-23T22:18:03.237Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>题目链接: <a href="https://leetcode.com/problems/subsets-ii/" target="_blank" rel="noopener">https://leetcode.com/problems/subsets-ii/</a></p><p><img src="/img/img_posts/leetcode90.png" alt></p><h2 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h2><p>dfs 组合 + 剪枝.<br>在 78 题的基础上添加一个剪枝.<br>首先对 nums 排序, 使相同数字处于相邻位置.<br>确保 index + 1 &lt; nums.size() 防止下标越界.<br>剪去 nums[index] == nums[index + 1] 时的右侧分支.</p><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Subsets II*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; subset;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> index, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (index == nums.size())</span><br><span class="line">&#123;</span><br><span class="line">res.push_back(subset);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line">subset.push_back(nums[index]);</span><br><span class="line">dfs(index + <span class="number">1</span>, nums);</span><br><span class="line">subset.pop_back();</span><br><span class="line"><span class="keyword">while</span> (index + <span class="number">1</span> &lt; nums.size() &amp;&amp; nums[index] == nums[index + <span class="number">1</span>])</span><br><span class="line">index++;</span><br><span class="line">dfs(index + <span class="number">1</span>, nums);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; subsetsWithDup(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span><br><span class="line">&#123;</span><br><span class="line">sort(nums.begin(), nums.end());</span><br><span class="line">dfs(<span class="number">0</span>, nums);</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      leetcode90
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://akijoey.com/categories/Algorithm/"/>
+    
+    
+      <category term="LeetCode" scheme="https://akijoey.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode - 78</title>
+    <link href="https://akijoey.com/2020/02/24/LeetCode%20-%2078/"/>
+    <id>https://akijoey.com/2020/02/24/LeetCode%20-%2078/</id>
+    <published>2020-02-23T16:00:00.000Z</published>
+    <updated>2020-02-23T21:31:14.655Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>题目链接: <a href="https://leetcode.com/problems/subsets/" target="_blank" rel="noopener">https://leetcode.com/problems/subsets/</a></p><p><img src="/img/img_posts/leetcode78.png" alt></p><h2 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h2><p>dfs 组合.<br>将一次搜索分为是否选取某元素的两种情况.<br>分别对应 push 和 pop 后的 dfs.</p><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Subsets*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; subset;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> index, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (index == nums.size())</span><br><span class="line">&#123;</span><br><span class="line">res.push_back(subset);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line">subset.push_back(nums[index]);</span><br><span class="line">dfs(index + <span class="number">1</span>, nums);</span><br><span class="line">subset.pop_back();</span><br><span class="line">dfs(index + <span class="number">1</span>, nums);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; subsets(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span><br><span class="line">&#123;</span><br><span class="line">dfs(<span class="number">0</span>, nums);</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      leetcode78
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://akijoey.com/categories/Algorithm/"/>
+    
+    
+      <category term="LeetCode" scheme="https://akijoey.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode - 77</title>
+    <link href="https://akijoey.com/2020/02/24/LeetCode%20-%2077/"/>
+    <id>https://akijoey.com/2020/02/24/LeetCode%20-%2077/</id>
+    <published>2020-02-23T16:00:00.000Z</published>
+    <updated>2020-02-23T20:52:25.676Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>题目链接: <a href="https://leetcode.com/problems/combinations/" target="_blank" rel="noopener">https://leetcode.com/problems/combinations/</a></p><p><img src="/img/img_posts/leetcode77.png" alt></p><h2 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h2><p>dfs 组合 + 剪枝.<br>dfs 中 i 的上界其实并不是 n.<br>而是 n - 待选择个数 + 1, 待选择个数为 k - combination.<br>即 i &lt;= n - k + combination.size() + 1.</p><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Combinations*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; combination;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> n, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (combination.size() == k)</span><br><span class="line">&#123;</span><br><span class="line">res.push_back(combination);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = index;i &lt;= n - k + combination.size() + <span class="number">1</span>;i++)</span><br><span class="line">&#123;</span><br><span class="line">combination.push_back(i);</span><br><span class="line">dfs(i + <span class="number">1</span>, n, k);</span><br><span class="line">combination.pop_back();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; combine(<span class="keyword">int</span> n, <span class="keyword">int</span> k)</span><br><span class="line">&#123;</span><br><span class="line">dfs(<span class="number">1</span>, n, k);</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      leetcode77
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://akijoey.com/categories/Algorithm/"/>
+    
+    
+      <category term="LeetCode" scheme="https://akijoey.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode - 40</title>
+    <link href="https://akijoey.com/2020/02/23/LeetCode%20-%2040/"/>
+    <id>https://akijoey.com/2020/02/23/LeetCode%20-%2040/</id>
+    <published>2020-02-22T16:00:00.000Z</published>
+    <updated>2020-02-23T20:10:16.439Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>题目链接: <a href="https://leetcode.com/problems/combination-sum-ii/" target="_blank" rel="noopener">https://leetcode.com/problems/combination-sum-ii/</a></p><p><img src="/img/img_posts/leetcode40.png" alt></p><h2 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h2><p>dfs 组合 + 剪枝.<br>在上一题的基础上添加一个剪枝.<br>首先对 candidates 排序, 使相同数字处于相邻位置.<br>剪去后一个位置即 candidates[i] == candidates[i - 1] 的情况.</p><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Combination Sum II*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; candidate;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> target, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; candidates)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (!target)</span><br><span class="line">&#123;</span><br><span class="line">res.push_back(candidate);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = index;i &lt; candidates.size();i++)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (target &lt; candidates[i])</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">if</span> (i &gt; index &amp;&amp; candidates[i] == candidates[i - <span class="number">1</span>])</span><br><span class="line"><span class="keyword">continue</span>;</span><br><span class="line">candidate.push_back(candidates[i]);</span><br><span class="line">dfs(i + <span class="number">1</span>, target - candidates[i], candidates);</span><br><span class="line">candidate.pop_back();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; combinationSum2(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; candidates, <span class="keyword">int</span> target)</span><br><span class="line">&#123;</span><br><span class="line">sort(candidates.begin(), candidates.end());</span><br><span class="line">dfs(<span class="number">0</span>, target, candidates);</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      leetcode40
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://akijoey.com/categories/Algorithm/"/>
+    
+    
+      <category term="LeetCode" scheme="https://akijoey.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode - 22</title>
+    <link href="https://akijoey.com/2020/02/23/LeetCode%20-%2022/"/>
+    <id>https://akijoey.com/2020/02/23/LeetCode%20-%2022/</id>
+    <published>2020-02-22T16:00:00.000Z</published>
+    <updated>2020-02-25T21:24:50.417Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>题目链接: <a href="https://leetcode.com/problems/generate-parentheses/" target="_blank" rel="noopener">https://leetcode.com/problems/generate-parentheses/</a></p><p><img src="/img/img_posts/leetcode22.png" alt></p><h2 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h2><p>dfs + 回溯.<br>l, r 分别记录左右括号的数量.<br>若 l &lt; n 则添加左括号, 即 s + ‘(‘.<br>若 l &gt; r 则添加右括号, 即 s + ‘)’.</p><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Generate Parentheses*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; res;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="built_in">string</span> s, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (l == n &amp;&amp; r == n)</span><br><span class="line">res.push_back(s);</span><br><span class="line"><span class="keyword">if</span> (l &lt; n)</span><br><span class="line">dfs(l + <span class="number">1</span>, r, s + <span class="string">'('</span>, n);</span><br><span class="line"><span class="keyword">if</span> (l &gt; r)</span><br><span class="line">dfs(l, r + <span class="number">1</span>, s + <span class="string">')'</span>, n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; generateParenthesis(<span class="keyword">int</span> n)</span><br><span class="line">&#123;</span><br><span class="line">dfs(<span class="number">0</span>, <span class="number">0</span>, <span class="string">""</span>, n);</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      leetcode22
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://akijoey.com/categories/Algorithm/"/>
+    
+    
+      <category term="LeetCode" scheme="https://akijoey.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode - 17</title>
+    <link href="https://akijoey.com/2020/02/23/LeetCode%20-%2017/"/>
+    <id>https://akijoey.com/2020/02/23/LeetCode%20-%2017/</id>
+    <published>2020-02-22T16:00:00.000Z</published>
+    <updated>2020-02-23T15:19:18.984Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>题目链接: <a href="https://leetcode.com/problems/letter-combinations-of-a-phone-number/" target="_blank" rel="noopener">https://leetcode.com/problems/letter-combinations-of-a-phone-number/</a></p><p><img src="/img/img_posts/leetcode17.png" alt></p><h2 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h2><p>dfs 全排列.<br>map[digits[index] - ‘0’] 获取数字的 map.<br>因为形参只是 string 的拷贝, 不改变 s 的值.<br>所以回溯时不需要删除最后一个字符 c.<br>注意 digits 为 “” 的特殊情况.</p><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Letter Combinations of a Phone Number*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; res;</span><br><span class="line"><span class="built_in">string</span> <span class="built_in">map</span>[<span class="number">10</span>] = &#123;<span class="string">""</span>, <span class="string">""</span>, <span class="string">"abc"</span>, <span class="string">"def"</span>, <span class="string">"ghi"</span>, <span class="string">"jkl"</span>, <span class="string">"mno"</span>, <span class="string">"pqrs"</span>, <span class="string">"tuv"</span>, <span class="string">"wxyz"</span>&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> index, <span class="built_in">string</span> s, <span class="built_in">string</span>&amp; digits)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (index == digits.size())</span><br><span class="line">&#123;</span><br><span class="line">res.push_back(s);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> c : <span class="built_in">map</span>[digits[index] - <span class="string">'0'</span>])</span><br><span class="line">dfs(index + <span class="number">1</span>, s + c, digits);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; letterCombinations(<span class="built_in">string</span> digits)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (!digits.size())</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">dfs(<span class="number">0</span>, <span class="string">""</span>, digits);</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      leetcode17
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://akijoey.com/categories/Algorithm/"/>
+    
+    
+      <category term="LeetCode" scheme="https://akijoey.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode - 39</title>
+    <link href="https://akijoey.com/2020/02/23/LeetCode%20-%2039/"/>
+    <id>https://akijoey.com/2020/02/23/LeetCode%20-%2039/</id>
+    <published>2020-02-22T16:00:00.000Z</published>
+    <updated>2020-02-23T20:10:23.446Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>题目链接: <a href="https://leetcode.com/problems/combination-sum/" target="_blank" rel="noopener">https://leetcode.com/problems/combination-sum/</a></p><p><img src="/img/img_posts/leetcode39.png" alt></p><h2 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h2><p>dfs 组合 + 剪枝.<br>剪去组合总和大于 target 的情况.<br>因为 target 逐层减去 candidates[i].<br>所以只需要剪去 target &lt; candidates[i] 的情况.<br>因为数字可以重复使用, 所以起始位置还是 index 自身.</p><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Combination Sum*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; candidate;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">int</span> target, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; candidates)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (!target)</span><br><span class="line">&#123;</span><br><span class="line">res.push_back(candidate);</span><br><span class="line"><span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = index;i &lt; candidates.size();i++)</span><br><span class="line"><span class="keyword">if</span> (target &gt;= candidates[i])</span><br><span class="line">&#123;</span><br><span class="line">candidate.push_back(candidates[i]);</span><br><span class="line">dfs(i, target - candidates[i], candidates);</span><br><span class="line">candidate.pop_back();</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; combinationSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; candidates, <span class="keyword">int</span> target)</span><br><span class="line">&#123;</span><br><span class="line">dfs(<span class="number">0</span>, target, candidates);</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      leetcode39
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://akijoey.com/categories/Algorithm/"/>
+    
+    
+      <category term="LeetCode" scheme="https://akijoey.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode - 47</title>
+    <link href="https://akijoey.com/2020/02/22/LeetCode%20-%2047/"/>
+    <id>https://akijoey.com/2020/02/22/LeetCode%20-%2047/</id>
+    <published>2020-02-21T16:00:00.000Z</published>
+    <updated>2020-02-23T17:55:23.580Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>题目链接: <a href="https://leetcode.com/problems/permutations-ii/" target="_blank" rel="noopener">https://leetcode.com/problems/permutations-ii/</a></p><p><img src="/img/img_posts/leetcode47.png" alt></p><h2 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h2><p>dfs 全排列 + 剪枝.<br>首先对 nums 排序, 确保 nums 有序.<br>剪去相同数字交换即 nums[i] == nums[index] 的情况.<br>另一个方法是用 set&lt;vector<int>&gt; 保存结果去重.</int></p><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Permutations II*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> index, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nums)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (index == nums.size())</span><br><span class="line">res.push_back(nums);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = index;i &lt; nums.size();i++)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> (i &gt; index &amp;&amp; nums[i] == nums[index])</span><br><span class="line"><span class="keyword">continue</span>;</span><br><span class="line">swap(nums[i], nums[index]);</span><br><span class="line">dfs(index + <span class="number">1</span>, nums);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; permuteUnique(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span><br><span class="line">&#123;</span><br><span class="line">sort(nums.begin(), nums.end());</span><br><span class="line">dfs(<span class="number">0</span>, nums);</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      leetcode47
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://akijoey.com/categories/Algorithm/"/>
+    
+    
+      <category term="LeetCode" scheme="https://akijoey.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode - 547</title>
+    <link href="https://akijoey.com/2020/02/22/LeetCode%20-%20547/"/>
+    <id>https://akijoey.com/2020/02/22/LeetCode%20-%20547/</id>
+    <published>2020-02-21T16:00:00.000Z</published>
+    <updated>2020-02-22T20:05:41.625Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>题目链接: <a href="https://leetcode.com/problems/friend-circles/" target="_blank" rel="noopener">https://leetcode.com/problems/friend-circles/</a></p><p><img src="/img/img_posts/leetcode547.png" alt></p><h2 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h2><p>并查集 + 路径压缩优化.<br>先假设共有 n 个朋友圈.<br>若两个朋友圈能够合并, 则 res–.</p><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Friend Circles*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; parent;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> v)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> parent[v] = parent[v] == v ? v : find(parent[v]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">unite</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> a = find(x), b = find(y);</span><br><span class="line"><span class="keyword">if</span> (a != b)</span><br><span class="line">&#123;</span><br><span class="line">parent[a] = b;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findCircleNum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; M)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> n = M.size(), res = n;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line">parent.push_back(i);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>;j &lt; n;j++)</span><br><span class="line"><span class="keyword">if</span> (M[i][j] &amp;&amp; unite(i, j))</span><br><span class="line">res--;</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      leetcode547
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://akijoey.com/categories/Algorithm/"/>
+    
+    
+      <category term="LeetCode" scheme="https://akijoey.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode - 46</title>
+    <link href="https://akijoey.com/2020/02/22/LeetCode%20-%2046/"/>
+    <id>https://akijoey.com/2020/02/22/LeetCode%20-%2046/</id>
+    <published>2020-02-21T16:00:00.000Z</published>
+    <updated>2020-02-23T10:17:07.304Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>题目链接: <a href="https://leetcode.com/problems/permutations/" target="_blank" rel="noopener">https://leetcode.com/problems/permutations/</a></p><p><img src="/img/img_posts/leetcode46.png" alt></p><h2 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h2><p>dfs 全排列.<br>因为形参不是 nums 数组的引用.<br>所以回溯时不需要 swap.<br>另一个方法是使用内置函数 next_permutation().</p><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Permutations*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> index, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nums)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (index == nums.size())</span><br><span class="line">res.push_back(nums);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = index;i &lt; nums.size();i++)</span><br><span class="line">&#123;</span><br><span class="line">swap(nums[i], nums[index]);</span><br><span class="line">dfs(index + <span class="number">1</span>, nums);</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; permute(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span><br><span class="line">&#123;</span><br><span class="line">dfs(<span class="number">0</span>, nums);</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      leetcode46
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://akijoey.com/categories/Algorithm/"/>
+    
+    
+      <category term="LeetCode" scheme="https://akijoey.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode - 695</title>
+    <link href="https://akijoey.com/2020/02/21/LeetCode%20-%20695/"/>
+    <id>https://akijoey.com/2020/02/21/LeetCode%20-%20695/</id>
+    <published>2020-02-20T16:00:00.000Z</published>
+    <updated>2020-02-25T20:43:23.097Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>题目链接: <a href="https://leetcode.com/problems/max-area-of-island/" target="_blank" rel="noopener">https://leetcode.com/problems/max-area-of-island/</a></p><p><img src="/img/img_posts/leetcode695.png" alt></p><h2 id="Write-Up"><a href="#Write-Up" class="headerlink" title="Write Up"></a>Write Up</h2><p>dfs 四个方向遍历岛屿, 将遍历后的岛屿变为海洋.<br>即将 grid 中的 1 变为 0, 注意边界的判断.<br>area 计算岛屿面积, res 为岛屿面积最大值.</p><h2 id="Source-Code"><a href="#Source-Code" class="headerlink" title="Source Code"></a>Source Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Max Area of Island*/</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="keyword">int</span> direction[<span class="number">4</span>][<span class="number">2</span>] = &#123;&#123; <span class="number">0</span>, <span class="number">1</span> &#125;, &#123; <span class="number">0</span>, <span class="number">-1</span> &#125;, &#123; <span class="number">1</span>, <span class="number">0</span> &#125;, &#123; <span class="number">-1</span>, <span class="number">0</span> &#125;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span> (i &lt; <span class="number">0</span> || j &lt; <span class="number">0</span> || i &gt;= grid.size() || j &gt;= grid[i].size() || !grid[i][j])</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">grid[i][j] = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">int</span> area = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">auto</span> d : direction)</span><br><span class="line">area += dfs(grid, i + d[<span class="number">0</span>], j + d[<span class="number">1</span>]);</span><br><span class="line"><span class="keyword">return</span> area;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">maxAreaOfIsland</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; grid.size();i++)</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; grid[i].size();j++)</span><br><span class="line"><span class="keyword">if</span> (grid[i][j])</span><br><span class="line">res = max(res, dfs(grid, i, j));</span><br><span class="line"><span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      leetcode695
+    
+    </summary>
+    
+    
+      <category term="Algorithm" scheme="https://akijoey.com/categories/Algorithm/"/>
+    
+    
+      <category term="LeetCode" scheme="https://akijoey.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+</feed>
