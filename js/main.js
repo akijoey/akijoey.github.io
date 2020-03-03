@@ -126,58 +126,58 @@ $(function () {
 
 
   //--------------------------------------------------------------------------------------------------------
-  // bookmark
-  $.fancyConfirm = function (opts) {
-    opts = $.extend(true, {
-      title: 'Are you sure?',
-      message: '',
-      okButton: 'OK',
-      noButton: 'Cancel',
-      callback: $.noop
-    }, opts || {});
+// bookmark
+  // $.fancyConfirm = function (opts) {
+  //   opts = $.extend(true, {
+  //     title: 'Are you sure?',
+  //     message: '',
+  //     okButton: 'OK',
+  //     noButton: 'Cancel',
+  //     callback: $.noop
+  //   }, opts || {});
 
-    $.fancybox.open({
-      type: 'html',
-      src: '<div class="fc-content">' +
-        '<h3>' + opts.title + '</h3>' +
-        '<p>' + opts.message + '</p>' +
-        '<p class="tright">' +
-        '<button data-value="1" data-fancybox-close class="bookmark-ok">' + opts.okButton + '</button>' +
-        '</p>' +
-        '</div>',
-      opts: {
-        animationDuration: 350,
-        animationEffect: 'material',
-        modal: true,
-        baseTpl: '<div class="fancybox-container fc-container" role="dialog" tabindex="-1">' +
-          '<div class="fancybox-bg"></div>' +
-          '<div class="fancybox-inner">' +
-          '<div class="fancybox-stage"></div>' +
-          '</div>' +
-          '</div>',
-      }
-    });
-  }
+  //   $.fancybox.open({
+  //     type: 'html',
+  //     src: '<div class="fc-content">' +
+  //       '<h3>' + opts.title + '</h3>' +
+  //       '<p>' + opts.message + '</p>' +
+  //       '<p class="tright">' +
+  //       '<button data-value="1" data-fancybox-close class="bookmark-ok">' + opts.okButton + '</button>' +
+  //       '</p>' +
+  //       '</div>',
+  //     opts: {
+  //       animationDuration: 350,
+  //       animationEffect: 'material',
+  //       modal: true,
+  //       baseTpl: '<div class="fancybox-container fc-container" role="dialog" tabindex="-1">' +
+  //         '<div class="fancybox-bg"></div>' +
+  //         '<div class="fancybox-inner">' +
+  //         '<div class="fancybox-stage"></div>' +
+  //         '</div>' +
+  //         '</div>',
+  //     }
+  //   });
+  // }
 
-  $('#bookmark-it').click(
-    function () {
-      if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
-        window.sidebar.addPanel(document.title, window.location.href, '');
-      } else if (window.external && ('AddFavorite' in window.external)) { // IE Favorite
-        window.external.AddFavorite(location.href, document.title);
-      } else if (window.opera && window.print) { // Opera Hotlist
-        this.title = document.title;
-        return true;
-      } else { // webkit - safari/chrome
-        // alert('按 ' + (navigator.userAgent.toLowerCase().indexOf('mac') != -1 ? 'Command/Cmd' : 'CTRL') + ' + D 鍵將本頁加入書籤.');
-        $.fancyConfirm({
-          title: GLOBAL_CONFIG.bookmark.title + '?',
-          message: GLOBAL_CONFIG.bookmark.message_prev + (navigator.userAgent.toLowerCase().indexOf('mac') != -1 ? 'Command/Cmd' : 'CTRL') + '+ D ' + GLOBAL_CONFIG.bookmark.message_next + '.',
-          okButton: "OK",
-        });
+  // $('#bookmark-it').click(
+  //   function () {
+  //     if (window.sidebar && window.sidebar.addPanel) { // Mozilla Firefox Bookmark
+  //       window.sidebar.addPanel(document.title, window.location.href, '');
+  //     } else if (window.external && ('AddFavorite' in window.external)) { // IE Favorite
+  //       window.external.AddFavorite(location.href, document.title);
+  //     } else if (window.opera && window.print) { // Opera Hotlist
+  //       this.title = document.title;
+  //       return true;
+  //     } else { // webkit - safari/chrome
+  //       // alert('按 ' + (navigator.userAgent.toLowerCase().indexOf('mac') != -1 ? 'Command/Cmd' : 'CTRL') + ' + D 鍵將本頁加入書籤.');
+  //       $.fancyConfirm({
+  //         title: GLOBAL_CONFIG.bookmark.title + '?',
+  //         message: GLOBAL_CONFIG.bookmark.message_prev + (navigator.userAgent.toLowerCase().indexOf('mac') != -1 ? 'Command/Cmd' : 'CTRL') + '+ D ' + GLOBAL_CONFIG.bookmark.message_next + '.',
+  //         okButton: "OK",
+  //       });
 
-      }
-    });
+  //     }
+  //   });
 
   //-------------------------------------------------------------------------------------------------------
   //代码copy
