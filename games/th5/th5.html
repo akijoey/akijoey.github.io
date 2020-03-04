@@ -6,7 +6,7 @@
 	  <meta name="viewport" content="width=device-width, initial-scale=0.56, maximum-scale=0.56, user-scalable=no" />
 	  <meta name="HandheldFriendly" content="true" />
     <title>Emscripten-Generated Code</title>
-    <link rel="stylesheet" href="th4e.css">
+    <link rel="stylesheet" href="th5.css">
   </head>
   <body>
 
@@ -63,7 +63,7 @@
 	</table>
 	<div style="height: 30pt;" />
 	</div>
-
+	
     <script type='text/javascript'>
       var statusElement = document.getElementById('status');
       var progressElement = document.getElementById('progress');
@@ -144,10 +144,10 @@
           if (text) Module.printErr('[post-exception status] ' + text);
         };
       };
-
+	  
 	  var oldBkColor = null ;
 	  	function kd(e, keyCode)
-		{
+		{	
 			if (oldBkColor == null)
 				oldBkColor = e.style.background;
 			e.style.background="red";
@@ -180,8 +180,13 @@
 		document.getElementById('softkbd').addEventListener("touchmove", function(e){
 			e.preventDefault();
 		},{passive: false});
+		
+		var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+		if ((!isMobile && (typeof window.orientation == 'undefined')) || Math.abs(window.orientation) === 90) {
+			//document.getElementById('softkbd').style.opacity=0.5;
+		}
     </script>
-    <script async type="text/javascript" src="th4e.js"></script>
+    <script async type="text/javascript" src="th5.js"></script>
   </body>
 </html>
 

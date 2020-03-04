@@ -1625,6 +1625,65 @@ footer.footer-bg {
     background-position: 0% 50%;
   }
 }
+.card-item {
+  width: 700px;
+  height: 280px;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 8px;
+}
+transition: all 0.3s {
+  overflow: hidden;
+  -webkit-box-shadow: 0 4px 8px 6px rgba(7,17,27,0.06);
+  box-shadow: 0 4px 8px 6px rgba(7,17,27,0.06);
+}
+transition: all 0.3s:hover {
+  -webkit-box-shadow: 0 4px 12px 12px rgba(7,17,27,0.15);
+  box-shadow: 0 4px 12px 12px rgba(7,17,27,0.15);
+}
+transition: all 0.3s .card-img {
+  width: 45%;
+  height: 280px;
+  overflow: hidden;
+  -webkit-transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  -ms-transition: all 0.6s;
+  transition: all 0.6s;
+}
+transition: all 0.3s .card-img img {
+  border: 0;
+  -webkit-transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  -ms-transition: all 0.6s;
+  transition: all 0.6s;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  object-fit: cover;
+}
+transition: all 0.3s .card-img img:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+transition: all 0.3s .card-left {
+  float: left;
+}
+transition: all 0.3s .card-right {
+  float: right;
+}
+transition: all 0.3s .card-info {
+  padding: 50px 40px;
+  display: inline-block;
+  width: 55%;
+  overflow: hidden;
+}
 #nav {
   position: relative;
   margin-bottom: 1rem;
@@ -1668,7 +1727,7 @@ footer.footer-bg {
   color: #eee;
   text-align: center;
   text-shadow: 0.1rem 0.1rem 0.2rem rgba(0,0,0,0.15);
-  line-height: 19rem;
+  line-height: 1.5;
 }
 #site-title {
   font-weight: bold;
@@ -1996,7 +2055,7 @@ footer.footer-bg {
 }
 @media screen and (min-width: 768px) {
   #site-title {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
   }
   #site-sub-title {
     font-size: 1.2rem;
@@ -4018,6 +4077,9 @@ a.article-meta__categories:hover {
   -webkit-box-shadow: 0 4px 12px 12px rgba(7,17,27,0.15);
   box-shadow: 0 4px 12px 12px rgba(7,17,27,0.15);
 }
+#page_site-info {
+  padding: 10rem 1rem 7rem;
+}
 #page_site-info #site-title {
   font-family: PingFang SC, Hiragino Sans GB, "Microsoft JhengHei", "Microsoft YaHei", Helvetica Neue, Helvetica, Arial, sans-serif;
 }
@@ -4110,6 +4172,9 @@ a.article-meta__categories:hover {
   }
   #nav #site-social-icons {
     display: block;
+  }
+  #page_site-info {
+    padding: 7rem 1rem 5rem;
   }
   #top-container {
     height: 14rem;
